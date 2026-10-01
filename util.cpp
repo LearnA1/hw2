@@ -15,17 +15,26 @@ std::string convToLower(std::string src)
     to a set of words based on the criteria given in the assignment **/
 std::set<std::string> parseStringToWords(string rawWords)
 {
+  set<string> words;
 
+  string current = "";
 
-
-
-
-
-
-
-
-
-}
+  for (string::iterator it = rawWords.begin(); it != rawWords.end(); ++it){
+    if (isspace((unsigned char)*it) || ispunct((unsigned char)*it)){
+      if (current.length() >= 2){
+        words.insert(convToLower(current));
+      }
+      current = "";
+      }
+      else{
+        current += *it;
+      }
+    }
+    if (current.length() >= 2) {  
+      words.insert(convToLower(current)); // this is to add the last word that was never saved to words when the loop hit a delimitor
+    }
+    return words;
+  }
 
 /**************************************************
  * COMPLETED - You may use the following functions
