@@ -14,7 +14,7 @@ Movie::~Movie()
 set<string> Movie::keywords() const
 {
     set<string> keys = parseStringToWords(name_);
-    keys.insert(convToLower(genre_));  // verbatim apart from case folding
+    keys.insert(convToLower(genre_)); 
     return keys;
 }
 
